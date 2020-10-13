@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class LoadAssetBundle : MonoBehaviour
@@ -13,6 +14,11 @@ public class LoadAssetBundle : MonoBehaviour
     {
         _data.PrimitivesNames = _data.GetPrimitivesNames();
         StartCoroutine(DownloadAndChacheBundle());
+    }
+
+    private void OnDisable()
+    {
+        AssetBundle.UnloadAllAssetBundles(true);
     }
 
     private IEnumerator DownloadAndChacheBundle()
