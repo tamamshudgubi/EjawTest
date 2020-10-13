@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class LoadAssetBundle : MonoBehaviour
 {
-    private string _bundleUrl = "";
-    private int _version = 0;
     private DataSaver _data = new DataSaver();
 
-    public List<GameObject> GeometryObjects { get; private set; }
+    public List<GameObject> GeometryObjects = new List<GameObject>();
 
     private void Start()
     {
@@ -18,24 +17,17 @@ public class LoadAssetBundle : MonoBehaviour
 
     private IEnumerator DownloadAndChacheBundle()
     {
-        while (!Caching.ready)
-        {
-            yield return null;
-        }
+        string path = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+        string filePath = Path.Combine(Path.Combine(path, "primitiveobjects"));
 
-        var www = WWW.LoadFromCacheOrDownload(_bundleUrl, _version);
-        yield return www;
+        var request = AssetBundle.LoadFromFileAsync(Path.Combine("file:///", filePath));
+        yield return request;
 
-        if (!string.IsNullOrEmpty(www.error))
-        {
-            yield break;
-        }
-
-        var assetBundle = www.assetBundle;
+        AssetBundle assetBundle = request.assetBundle;
 
         foreach (var geometry in _data.PrimitivesNames)
         {
-            var geometryObject = assetBundle.LoadAssetAsync(geometry, typeof(GameObject));
+            AssetBundleRequest geometryObject = assetBundle.LoadAssetAsync(geometry, typeof(GameObject));
             GeometryObjects.Add(geometryObject.asset as GameObject);
         }
     }
