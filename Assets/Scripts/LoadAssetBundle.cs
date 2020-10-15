@@ -13,7 +13,7 @@ public class LoadAssetBundle : MonoBehaviour
     private void Start()
     {
         _data.PrimitivesNames = _data.GetPrimitivesNames();
-        StartCoroutine(DownloadAssetBundle());
+        StartCoroutine(DownloadAndChacheBundle());
     }
 
     private void OnDisable()
@@ -21,7 +21,7 @@ public class LoadAssetBundle : MonoBehaviour
         AssetBundle.UnloadAllAssetBundles(true);
     }
 
-    private IEnumerator DownloadAssetBundle()
+    private IEnumerator DownloadAndChacheBundle()
     {
         string path = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
         string filePath = Path.Combine(Path.Combine(path, "primitiveobjects"));

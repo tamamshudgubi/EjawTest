@@ -1,0 +1,44 @@
+ManifestFileVersion: 0
+CRC: 3148167619
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1599714d4519fb78041e89fb00db6ee4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9e3c77c862c6f6751fddf4f58d1ab8b4
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 276b9c737ec1def48a699473e20d770b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 408997c5e99eaf7409992a6d0d6daf4d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 95d79cabfabd83f4abff1d408c3fbc1a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Cube.prefab
+- Assets/Resources/Capsule.prefab
+- Assets/Resources/Sphere.prefab
+Dependencies: []
